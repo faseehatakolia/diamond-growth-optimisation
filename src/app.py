@@ -32,11 +32,14 @@ st.write(
 	"to diamond growth rate."
 )
 
+
 st.warning(
-	"This model uses six provisional observations. "
-	"Predictions are illustrative and must not be used "
-	"to select real reactor operating conditions."
+    "Research prototype only. The regression models use "
+    "six selected published observations and have not "
+    "been independently validated. Predictions must not "
+    "be used to select real MPCVD reactor conditions."
 )
+
 
 
 # Load the dataset and train the model
@@ -82,6 +85,39 @@ time_hours = st.slider(
 	value=5,
 	step=1
 )
+
+
+# Explain limitations of the selected experimental data
+st.info(
+    "The dataset contains only six selected published "
+    "observations. The two temperature series involved "
+    "different reactor conditions, including pressure "
+    "and microwave power. These variables are not "
+    "included in the regression model."
+)
+
+# Check whether the exact input pair appears in the dataset
+observed_data = load_data()
+
+exact_match = observed_data[
+    (observed_data["methane_pct"] == methane)
+    & (observed_data["temperature_c"] == temperature)
+]
+
+if exact_match.empty:
+    st.warning(
+        "This exact methane-temperature combination "
+        "is not represented in the six selected observations. "
+        "The result is a regression estimate, not a "
+        "directly measured experimental value."
+    )
+else:
+    st.caption(
+        "This input combination appears in the selected "
+        "experimental dataset. The displayed prediction "
+        "is still a fitted model output, not the "
+        "measured growth rate."
+    )
 
 
 
@@ -135,23 +171,6 @@ if not valid_prediction:
     )
 
 
-
-# Display the results
-st.header("2. Predicted Results")
-
-col1, col2 = st.columns(2)
-
-with col1:
-	st.metric(
-		"Predicted growth rate",
-		f"{growth_rate:.3f} µm/h"
-	)
-
-with col2:
-	st.metric(
-		"Estimated thickness",
-		f"{thickness:.3f} µm"
-	)
 
 
 # Explain the calculations

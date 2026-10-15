@@ -44,10 +44,21 @@ def predict_growth(model, methane_pct, temperature_c):
 	return float(prediction)
 
 
-def calculate_thickness(growth_rate, time_hours):
-	"""Estimate thickness assuming constant growth rate."""
 
-	return growth_rate * time_hours
+def calculate_thickness(growth_rate, time_hours):
+    """Estimate thickness assuming constant growth rate."""
+
+    if not np.isfinite(growth_rate) or not np.isfinite(time_hours):
+        raise ValueError("Growth rate and duration must be finite.")
+
+    if growth_rate < 0:
+        raise ValueError("Growth rate cannot be negative.")
+
+    if time_hours < 0:
+        raise ValueError("Growth duration cannot be negative.")
+
+    return float(growth_rate * time_hours)
+
 
 
 def train_quadratic_model(data):

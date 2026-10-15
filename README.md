@@ -75,23 +75,32 @@ An illustrative thickness estimate is calculated using:
 
 This assumes a constant growth rate throughout the deposition period.
 
+
 ## 5. Dataset
 
-The current demonstration dataset contains six provisional observations representing methane concentration, substrate temperature and diamond growth rate.
+The project uses six selected experimental growth-rate observations reported by Martyanov et al. (2023).
+
+The numerical values have been cross-checked against the published article text.
 
 The dataset is stored in:
 
 `data/mpcvd_experimental_data_v01.csv`
 
-The observations require verification against the original scientific literature before they can be treated as reliable experimental measurements.
+Full provenance and limitations are documented in:
 
-**Potential source for verification:**
+`data/DATASET_README.md`
+
+**Primary source:**
 
 Martyanov et al. (2023), *Synthesis of Polycrystalline Diamond Films in Microwave Plasma at Ultrahigh Concentrations of Methane*.
 
-https://www.mdpi.com/2079-6412/13/4/751
+https://doi.org/10.3390/coatings13040751
 
-The current data should not be described as a verified extraction from this publication until the reported experimental values and conditions have been checked.
+Although the six numerical observations are source-traceable, the dataset is small and does not fully represent the original experimental conditions.
+
+In particular, reactor pressure and microwave power are not included as predictors.
+
+The dataset is suitable for exploratory modelling and software development, but the resulting predictions have not been independently validated.
 
 ## 6. Software Features
 
@@ -189,8 +198,8 @@ The bounds used in the demonstration reflect the overall ranges of the provision
 
 The current prototype has several important limitations:
 
-- Only six provisional observations are available.
-- The dataset has not yet been fully verified against the primary source.
+- Only six selected published observations are available.
+- The dataset contains source-checked numerical values, but incomplete experimental conditions.
 - Relevant process variables, including pressure and microwave power, are not adequately represented.
 - Reactor conditions may differ between observations.
 - The regression models have not been independently validated.
