@@ -2,19 +2,21 @@
 
 ## 1. Dataset Overview
 
-**Filename:** mpcvd_experimental_data_v01.csv
+**Filename:** `mpcvd_experimental_data_v01.csv`
 
 **Project:** Predictive Modelling and Optimisation of Microwave Plasma CVD Diamond Growth Using Experimental Data
 
-**Dataset status:** Provisional, unverified demonstration dataset
+**Dataset status:** Source-traceable, limited experimental dataset; scientific validation of the predictive model remains outstanding.
 
 **Number of observations:** 6
 
-The dataset contains illustrative records of methane concentration, substrate temperature and diamond growth rate.
+The dataset contains six selected diamond growth-rate observations reported by Martyanov et al. (2023).
 
-It is used to demonstrate data handling, regression modelling and scientific visualisation.
+The records include methane concentration, substrate temperature and diamond growth rate.
 
-The dataset must not be described as a verified experimental dataset until its values and associated conditions have been checked against the primary scientific source.
+The dataset is used to demonstrate data handling, regression modelling and scientific visualisation.
+
+Although the reported numerical values have been identified in the primary publication, the dataset represents only a small selection of observations and does not fully capture the experimental conditions.
 
 ## 2. Dataset Variables
 
@@ -24,9 +26,11 @@ The dataset must not be described as a verified experimental dataset until its v
 | temperature_c | Substrate temperature | °C |
 | methane_pct | Methane concentration | % |
 | growth_rate_um_h | Diamond growth rate | µm/h |
-| series_id | Provisional grouping identifier | None |
+| series_id | Grouping identifier for the experimental series | None |
 
-## 3. Potential Scientific Source
+## 3. Scientific Source and Dataset Provenance
+
+**Primary source:**
 
 Martyanov et al. (2023).
 
@@ -34,11 +38,32 @@ Martyanov et al. (2023).
 
 Coatings, 13(4), 751.
 
-https://www.mdpi.com/2079-6412/13/4/751
+https://doi.org/10.3390/coatings13040751
 
-This publication is a candidate primary source for verifying the dataset.
+### Dataset provenance and verification status
 
-The six records have not yet been confirmed as accurate extractions from the publication.
+The dataset contains six selected growth-rate observations reported in Section 3.3 of Martyanov et al. (2023), associated with Figure 4(b).
+
+The methane concentrations, substrate temperatures and growth rates have been cross-checked against the published article text.
+
+The selected observations are:
+
+| Temperature (°C) | Methane (%) | Growth rate (µm/h) |
+|---|---|---|
+| 800 | 4 | 0.60 |
+| 800 | 20 | 3.41 |
+| 800 | 100 | 0.60 |
+| 900 | 3 | 2.80 |
+| 900 | 40 | 4.10 |
+| 900 | 100 | 2.10 |
+
+These observations represent a small, selected subset of the published results rather than a complete experimental dataset.
+
+The two temperature series involved different reactor operating conditions, including adjustments to pressure and microwave power. These conditions are not fully represented in the current CSV.
+
+The dataset is therefore source-traceable but limited in experimental scope.
+
+It is suitable for demonstrating exploratory regression methods, not for establishing reliable reactor optimisation or independently validated predictions.
 
 ## 4. Data Preparation
 
@@ -57,40 +82,47 @@ A separate exploratory quadratic regression model uses methane concentration onl
 
 The dataset has several important limitations:
 
-- Only six provisional observations are available.
-- Values have not been independently verified.
-- Reactor pressure and microwave power are not adequately documented.
-- Experimental conditions may differ between observations.
-- The dataset may not represent a consistent experimental design.
-- The small sample size limits model reliability.
-- The available information is insufficient for validated process optimisation.
+- Only six selected observations are available.
+- The dataset does not contain the complete experimental results.
+- Reactor pressure and microwave power are not included as model predictors.
+- Experimental conditions differ between the temperature series.
+- The small sample size limits statistical reliability.
+- The model has not undergone independent experimental validation.
+- The observations are insufficient for reliable process optimisation.
+- Predictions outside the experimental conditions may be physically unrealistic.
 
 ## 6. Intended Use
 
 The dataset is intended for:
 
-- Python programming practice
 - Exploratory data analysis
 - Demonstrating regression techniques
 - Testing software functions
 - Developing an interactive engineering prototype
+- Investigating mathematical relationships
+- Supporting computational reproducibility
 
 It is not intended for selecting real MPCVD reactor operating conditions.
 
-## 7. Future Verification
+## 7. Future Research and Validation
 
-Before using the dataset for scientific conclusions:
+Before using the model for stronger scientific conclusions:
 
-1. Inspect the original publication.
-2. Identify the relevant figures and tables.
-3. Verify each numerical observation.
-4. Confirm the units and experimental conditions.
-5. Record the source location of each observation.
-6. Correct or replace any unsupported records.
-7. Expand the dataset where reliable measurements are available.
+1. Confirm that the local CSV exactly matches the six published values.
+2. Document the corresponding experimental conditions, including pressure and microwave power.
+3. Review the original figures and experimental methodology.
+4. Expand the dataset using additional reliable measurements.
+5. Investigate the effects of additional process variables.
+6. Compare alternative mathematical models.
+7. Evaluate uncertainty and prediction errors.
+8. Perform independent experimental validation where suitable data are available.
 
 ## 8. Data Integrity Statement
 
-The current records are provisional and have not been independently validated.
+The six selected numerical observations are traceable to reported values in Martyanov et al. (2023).
 
-Predictions derived from this dataset are illustrative mathematical outputs rather than experimentally established growth-rate estimates.
+However, the dataset is small and does not fully represent the experimental conditions.
+
+Predictions derived from this dataset remain exploratory mathematical outputs rather than independently validated estimates of diamond growth behaviour.
+
+The software prototype should not be interpreted as a validated industrial optimisation system.
