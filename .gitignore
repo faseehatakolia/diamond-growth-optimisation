@@ -28,3 +28,5 @@ __pycache__/
 # Editor-specific local settings
 .vscode/
 .agents/
+requirements-backup.txt
+requirements-backup.txt
