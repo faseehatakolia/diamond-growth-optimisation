@@ -202,6 +202,47 @@ The software is intended for educational exploration and methodological developm
 
 It must not be used to recommend real MPCVD reactor operating conditions.
 
+## Reproducibility and Dataset Provenance
+
+The prototype includes documentation and testing tools to support computational reproducibility.
+
+### Dataset Documentation
+
+Details of the provisional dataset, variables, potential scientific source and known limitations are provided in:
+
+`data/DATASET_README.md`
+
+### Automated Tests
+
+Run the software tests using:
+
+```bash
+python -m pytest tests/ -v
+```
+
+### Reproducibility Check
+
+Reproduce the reference model prediction using:
+
+```bash
+python tests/reproducibility_check.py
+```
+
+For methane concentration of 20%, substrate temperature of 800 °C and growth duration of 5 hours, the current model produces approximately:
+
+- Predicted growth rate: 1.762 µm/h
+- Estimated thickness: 8.810 µm
+
+These results demonstrate computational consistency with the provisional dataset.
+
+They do not establish experimental predictive accuracy.
+
+### Environment
+
+The principal Python dependencies are listed in `requirements.txt`.
+
+The current dependency list is not version-pinned; exact environment reproduction requires recording and controlling package versions.
+
 ## 11. Future Development
 
 Future work will focus on:
