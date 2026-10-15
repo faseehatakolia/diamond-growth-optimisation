@@ -1,0 +1,7 @@
+observation_id,temperature_c,methane_pct,growth_rate_um_h,series_id
+1,800,4,0.60,2
+2,800,20,3.41,2
+3,800,100,0.60,2
+4,900,3,2.80,3
+5,900,40,4.10,3
+6,900,100,2.10,3
