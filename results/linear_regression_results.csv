@@ -1,4 +1,4 @@
-observation_id,temperature_c,methane_pct,growth_rate_um_h,series_id,predicted_growth,residual
+observation_id,temperature_c,methane_pct,growth_rate_um_h,series_id,predicted_growth_um_h,residual_um_h
 1,800,4,0.6,2,1.9311534986225887,-1.3311534986225886
 2,800,20,3.41,2,1.762087713498623,1.647912286501377
 3,800,100,0.6,2,0.9167587878787877,-0.31675878787878775
