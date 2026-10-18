@@ -363,3 +363,12 @@ Its principal contribution at this stage is an exploratory, documented and teste
 **Project type:** Independent research and software-development portfolio project
 
 **Development status:** Version 0.1 — Exploratory prototype
+
+## Research Report
+
+The completed independent research report documents the
+scientific background, experimental data, mathematical
+methodology, computational implementation, results,
+critical evaluation and future research recommendations.
+
+[Read the full research report (PDF)](report/Diamond_Growth_Research_Report_Final.pdf)
